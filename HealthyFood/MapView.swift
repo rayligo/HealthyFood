@@ -11,6 +11,8 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+	
+
 class CurrentLocationAnnotation: NSObject, MKAnnotation, Identifiable {
     let id = UUID()
     dynamic var coordinate: CLLocationCoordinate2D
@@ -21,6 +23,7 @@ class CurrentLocationAnnotation: NSObject, MKAnnotation, Identifiable {
     }
 }
 
+
 struct MapView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject var locationModel = MapLocationModel()
@@ -29,73 +32,81 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            if locationModel.authorizationStatus == .authorizedWhenInUse || locationModel.authorizationStatus == .authorizedAlways {
+                    if locationModel.authorizationStatus == .authorizedWhenInUse || locationModel.authorizationStatus == .authorizedAlways {
 
-                Text("Lat: \(locationModel.lastLocation?.coordinate.latitude ?? 0)")
-                Text("Lng: \(locationModel.lastLocation?.coordinate.longitude ?? 0)")
+                        Text("Lat: \(locationModel.lastLocation?.coordinate.latitude ?? 0)")
+                        Text("Lng: \(locationModel.lastLocation?.coordinate.longitude ?? 0)")
 
-                Map(coordinateRegion: $locationModel.coordinateRegion, annotationItems: locationModel.currentLocationAnnotation != nil ? [locationModel.currentLocationAnnotation!] : []) { annotation in
-                    MapMarker(coordinate: annotation.coordinate, tint: .red)
-                }
-            } else {
-                Button("Request Permission", action: {
-                    locationModel.requestPermission()
-                })
-            }
-        }
-        .padding()
-
-        Spacer()
-            
-        Divider()
-            .padding([.leading, .trailing], 20)
-            .frame(height: 2)
-            .background(Color.gray)
-        
-        HStack(spacing: 10) {
-            ForEach(1..<5) { index in
-                if index == 2 {
-                    Image("map")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                } else if index == 1 {
-                    NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true)) {
-                        Image("notebook")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .foregroundColor(.white)
-                    }
-                } else {
-                    NavigationLink(destination: NoteBookView().environment(\.managedObjectContext, viewContext)) {
-                        Image("notebook")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .foregroundColor(.white)
+                        Map(coordinateRegion: $locationModel.coordinateRegion, annotationItems: getAnnotations()) { annotation in
+                            MapMarker(coordinate: annotation.coordinate, tint: annotation.tintColor)
+                        }
+                    } else {
+                        Button("Request Permission", action: {
+                            locationModel.requestPermission()
+                        })
                     }
                 }
+                .padding()
+
+                Spacer()
+                    
+                Divider()
+                    .padding([.leading, .trailing], 20)
+                    .frame(height: 2)
+                    .background(Color.gray)
+                
+                HStack(spacing: 10) {
+                    ForEach(1..<5) { index in
+                        if index == 2 {
+                            Image("map")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(10)
+                                .foregroundColor(.white)
+                        } else if index == 1 {
+                            NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true)) {
+                                Image("notebook")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.white)
+                            }
+                        } else {
+                            NavigationLink(destination: NoteBookView().environment(\.managedObjectContext, viewContext)) {
+                                Image("notebook")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: UIScreen.main.bounds.width / 5 - 20, height: UIScreen.main.bounds.width / 5 - 20)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                }
+                .padding(.bottom, 10)
+            }
+
+            private func getAnnotations() -> [MapAnnotationItem] {
+                var annotations = restaurants.map { MapAnnotationItem(coordinate: $0.coordinate, tintColor: .white) }
+                if let currentLocation = locationModel.currentLocationAnnotation {
+                    annotations.append(MapAnnotationItem(coordinate: currentLocation.coordinate, tintColor: .red))
+                }
+                return annotations
             }
         }
-        .padding(.bottom, 10)
-    }
-}
+
+
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        let persistenceController = PersistenceController.shared
         MapView()
-            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }
