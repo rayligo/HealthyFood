@@ -10,23 +10,23 @@ import FirebaseCore
 import Firebase
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
 }
 
 @main
 struct HealthyFoodApp: App {
     let persistenceController = PersistenceController.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @State private var isLoggedOut = false
+
     var body: some Scene {
         WindowGroup {
-            LoginView().environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
+            LoginView(isLoggedOut: $isLoggedOut)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
