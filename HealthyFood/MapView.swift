@@ -32,14 +32,10 @@ struct MapView: View {
         VStack(alignment: .leading) {
             if locationModel.authorizationStatus == .authorizedWhenInUse || locationModel.authorizationStatus == .authorizedAlways {
                 VStack(alignment: .leading) {
-                    Text("Lat: \(locationModel.lastLocation?.coordinate.latitude ?? 0)")
-                        .font(.headline)
-                    Text("Lng: \(locationModel.lastLocation?.coordinate.longitude ?? 0)")
-                        .font(.headline)
                     Map(coordinateRegion: $locationModel.coordinateRegion, annotationItems: getAnnotations()) { annotation in
                         MapMarker(coordinate: annotation.coordinate, tint: annotation.tintColor)
                     }
-                    .frame(height: UIScreen.main.bounds.height * 0.6)
+                    .frame(height: UIScreen.main.bounds.height * 0.5)
                 }
                 .padding()
             } else {
