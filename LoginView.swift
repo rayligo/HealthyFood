@@ -4,11 +4,11 @@
 //
 //  Created by Li Yiu Yeung  on 17/1/2025.
 //
-//
 
 import Foundation
 import SwiftUI
 import FirebaseAuth
+
 
 class SignInViewModel: ObservableObject {
     @Published var user: User?
@@ -20,7 +20,7 @@ class SignInViewModel: ObservableObject {
             errorMessage = "Please fill in all fields."
             return
         }
-        
+
         isLoading = true
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             self?.isLoading = false
@@ -34,6 +34,7 @@ class SignInViewModel: ObservableObject {
 }
 
 struct LoginView: View {
+    @Binding var isLoggedOut: Bool
     @State private var email = ""
     @State private var password = ""
     @StateObject private var viewModel = SignInViewModel()
@@ -52,7 +53,7 @@ struct LoginView: View {
                 } else {
                     horizontalLayout
                 }
-                
+
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .foregroundColor(Color.red)
@@ -63,27 +64,29 @@ struct LoginView: View {
                     Text("Register here")
                         .foregroundColor(.blue)
                 }
+
+                .background(
+                    NavigationLink(
+                        destination: HomeView().navigationBarBackButtonHidden(true),
+                        isActive: $isNavigatingToHomeView,
+                        label: { EmptyView() }
+                    )
+                )
             }
             .padding()
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarItems(trailing: EmptyView())
-            .background(
-                NavigationLink(
-                    destination: HomeView().navigationBarBackButtonHidden(true),
-                    isActive: $isNavigatingToHomeView,
-                    label: { EmptyView() }
-                )
-            )
             .onReceive(viewModel.$user) { user in
                 if user != nil {
+                    isLoggedOut = false
                     isNavigatingToHomeView = true
                 }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
+
     var verticalLayout: some View {
         VStack {
             TextField("Email", text: $email)
@@ -105,7 +108,7 @@ struct LoginView: View {
             }
         }
     }
-    
+
     var horizontalLayout: some View {
         HStack {
             TextField("Email", text: $email)
@@ -131,6 +134,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isLoggedOut: .constant(false))
     }
 }
