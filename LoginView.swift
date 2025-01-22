@@ -5,6 +5,7 @@
 //  Created by Li Yiu Yeung  on 17/1/2025.
 //
 //
+
 import Foundation
 import SwiftUI
 import FirebaseAuth
@@ -37,36 +38,26 @@ struct LoginView: View {
     @State private var password = ""
     @StateObject private var viewModel = SignInViewModel()
     @State private var isNavigatingToHomeView = false
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
-                Text("Login with email")
+                Text("HealthyFood")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                TextField("Email", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
-                
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                
-                if viewModel.isLoading {
-                    ProgressView()
+                if horizontalSizeClass == .compact {
+                    verticalLayout
                 } else {
-                    Button("Login") {
-                        viewModel.signIn(email: email, password: password)
-                    }
-                    .buttonStyle(.borderedProminent)
+                    horizontalLayout
                 }
                 
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .foregroundColor(Color.red)
                 }
+
                 Text("Don't have an account?")
                 NavigationLink(destination: RegisterView()) {
                     Text("Register here")
@@ -74,29 +65,69 @@ struct LoginView: View {
                 }
             }
             .padding()
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarItems(trailing: EmptyView())
+            .background(
+                NavigationLink(
+                    destination: HomeView().navigationBarBackButtonHidden(true),
+                    isActive: $isNavigatingToHomeView,
+                    label: { EmptyView() }
+                )
+            )
             .onReceive(viewModel.$user) { user in
                 if user != nil {
                     isNavigatingToHomeView = true
                 }
             }
-            .navigationDestination(isPresented: $isNavigatingToHomeView) {
-                HomeView()
-                    .navigationBarBackButtonHidden(true)  
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var verticalLayout: some View {
+        VStack {
+            TextField("Email", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .keyboardType(.emailAddress)
+
+            SecureField("Password", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+            
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Button("Login") {
+                    viewModel.signIn(email: email, password: password)
+                }
+                .buttonStyle(.borderedProminent)
             }
         }
-        .onTapGesture {
-            hideKeyboard()
+    }
+    
+    var horizontalLayout: some View {
+        HStack {
+            TextField("Email", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .keyboardType(.emailAddress)
+
+            SecureField("Password", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Button("Login") {
+                    viewModel.signIn(email: email, password: password)
+                }
+                .buttonStyle(.borderedProminent)
+            }
         }
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
