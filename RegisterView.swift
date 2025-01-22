@@ -4,7 +4,7 @@
 //
 //  Created by Li Yiu Yeung  on 17/1/2025.
 //
-//
+
 
 import Foundation
 import SwiftUI
@@ -38,7 +38,6 @@ struct RegisterView: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     @StateObject private var viewModel = RegisterViewModel()
-    @State private var isNavigatingToHomeView = false
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     var body: some View {
@@ -69,16 +68,8 @@ struct RegisterView: View {
                 }
             }
             .padding()
-            .onReceive(viewModel.$user) { user in
-                if user != nil {
-                    isNavigatingToHomeView = true
-                }
-            }
-            .background(
-                NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true), isActive: $isNavigatingToHomeView) {
-                    EmptyView()
-                }
-            )
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
