@@ -4,79 +4,100 @@
 //
 //  Created by Li Yiu Yeung  on 17/1/2025.
 //
-import Foundation
+
+
 import SwiftUI
+import FirebaseAuth
 
 struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     let disciplines = ["statue", "mural", "plaque"]
+    @State private var isLoggedOut = false
+    @State private var isNavigatingToLogin = false
 
     var body: some View {
-        TabView {
-            NavigationView {
-                VStack(spacing: 20) {
-                    List(disciplines, id: \.self) { discipline in
-                        NavigationLink(destination: DetailView(discipline: discipline)) {
-                            Text(discipline)
+        Group {
+            if isLoggedOut {
+                NavigationLink(
+                    destination: LoginView(isLoggedOut: $isLoggedOut),
+                    isActive: $isNavigatingToLogin,
+                    label: { EmptyView() }
+                ).hidden()
+            } else {
+                TabView {
+                    NavigationView {
+                        VStack(spacing: 20) {
+                            List(disciplines, id: \.self) { discipline in
+                                NavigationLink(destination: DetailView(discipline: discipline)) {
+                                    Text(discipline)
+                                }
+                            }
+
+                            Spacer()
+                        }
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Text("HealthyFood")
+                                    .font(.largeTitle)
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                NavigationLink(destination: NoteBookView().environment(\.managedObjectContext, viewContext)) {
+                                    Image("notebook")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .background(Color.white)
+                                        .cornerRadius(5)
+                                }
+                            }
                         }
                     }
-
-                    Spacer()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Text("HealthyFood")
-                            .font(.largeTitle)
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: NoteBookView().environment(\.managedObjectContext, viewContext)) {
-                            Image("notebook")
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .background(Color.white)
-                                .cornerRadius(5)
-                        }
+
+                    NavigationView {
+                        MapView()
+                            .navigationBarTitle("Map")
+                            .navigationBarBackButtonHidden(true)
+                    }
+                    .tabItem {
+                        Image(systemName: "map.fill")
+                        Text("Map")
+                    }
+
+                    NavigationView {
+                        AIFruitClassificationView()
+                            .navigationBarTitle("Fruit Classification")
+                            .navigationBarBackButtonHidden(true)
+                    }
+                    .tabItem {
+                        Image(systemName: "camera.fill")
+                        Text("Classify")
+                    }
+
+                    NavigationView {
+                        LogOutView(isLoggedOut: $isLoggedOut)
+                            .navigationBarTitle("Notepad", displayMode: .inline)
+                            .navigationBarBackButtonHidden(true)
+                    }
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("Log Out")
                     }
                 }
-            }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-
-            NavigationView {
-                MapView()
-                    .navigationBarTitle("Map")
-                    .navigationBarBackButtonHidden(true)
-            }
-            .tabItem {
-                Image(systemName: "map.fill")
-                Text("Map")
-            }
-
-            NavigationView {
-                AIFruitClassificationView()
-                    .navigationBarTitle("Fruit Classification")
-                    .navigationBarBackButtonHidden(true)
-            }
-            .tabItem {
-                Image(systemName: "camera.fill")
-                Text("Classify")
-            }
-
-            NavigationView {
-                NoteBookView()
-                    .navigationBarTitle("Notepad", displayMode: .inline)
-                    .navigationBarBackButtonHidden(true)
-                    .environment(\.managedObjectContext, viewContext)
-            }
-            .tabItem {
-                Image(systemName: "book.fill")
-                Text("Notepad")
+                .navigationViewStyle(StackNavigationViewStyle())
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            isLoggedOut = false
+        }
+        .onChange(of: isLoggedOut) { isLoggedOut in
+            if isLoggedOut {
+                isNavigatingToLogin = true
+            }
+        }
     }
 }
 
@@ -98,4 +119,3 @@ struct HomeView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }
-
