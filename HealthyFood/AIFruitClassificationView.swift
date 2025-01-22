@@ -5,7 +5,6 @@
 //  Created by Li Yiu Yeung  on 21/1/2025.
 //
 
-
 import Foundation
 import SwiftUI
 import CoreML
@@ -100,8 +99,6 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-
 struct AIFruitClassificationView: View {
     @StateObject private var modelView = ModelView()
     @State private var selectedImage: UIImage?
@@ -112,104 +109,138 @@ struct AIFruitClassificationView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 20) {
-                if let selectedImage = selectedImage {
-                    Image(uiImage: selectedImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: geometry.size.height * 0.3)
-                } else {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .frame(height: geometry.size.height * 0.3)
-                        .overlay(
-                            Text("Select or capture an image")
-                                .foregroundColor(.gray)
-                        )
-                }
+            ScrollView {
+                VStack(spacing: 20) {
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: geometry.size.height * 0.3)
+                    } else {
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(height: geometry.size.height * 0.3)
+                            .overlay(
+                                Text("Select or capture an image")
+                                    .foregroundColor(.gray)
+                            )
+                    }
                     
-                if isImageSubmitted {
-                    Text(modelView.classificationLabel)
-                        .font(.headline)
-                        .multilineTextAlignment(.center)
-                        .padding()
+                    if isImageSubmitted {
+                        Text(modelView.classificationLabel)
+                            .font(.headline)
+                            .multilineTextAlignment(.center)
+                            .padding()
                         
-                    if let fruitIdentifier = modelView.fruitIdentifier {
-                        NavigationLink(destination: FruitNutritionView(fruit: fruitIdentifier)) {
-                            Text("Go to Fruit Nutrition")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .padding()
-                                .frame(maxWidth: .infinity, maxHeight: 50)
-                                .background(Color.orange)
-                                .cornerRadius(8)
+                        if let fruitIdentifier = modelView.fruitIdentifier {
+                            NavigationLink(destination: FruitNutritionView(fruit: fruitIdentifier)) {
+                                Text("Go to Fruit Nutrition")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity, maxHeight: 50)
+                                    .background(Color.orange)
+                                    .cornerRadius(8)
+                            }
                         }
+                    } else {
+                        Text("Submit an image to classify it")
+                            .font(.headline)
+                            .multilineTextAlignment(.center)
+                            .padding()
                     }
 
-                } else {
-                    Text("Submit an image to classify it")
-                        .font(.headline)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                }
-                    
-                Button(action: {
-                    if let selectedImage = selectedImage {
-                        modelView.classify(image: selectedImage)
-                        isImageSubmitted = true
-                    }
-                }) {
-                    Text("Submit")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.green)
-                        .cornerRadius(8)
-                }
-                    
-                HStack(spacing: 20) {
                     Button(action: {
-                        imageSource = .photoLibrary
-                        isImagePickerPresented = true
+                        if let selectedImage = selectedImage {
+                            modelView.classify(image: selectedImage)
+                            isImageSubmitted = true
+                        }
                     }) {
-                        Text("Choose Image")
+                        Text("Submit")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color.green)
                             .cornerRadius(8)
                     }
-                        
-                    Button(action: {
-                        imageSource = .camera
-                        isImagePickerPresented = true
-                    }) {
-                        Text("Capture Image")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(8)
+                    
+                    Spacer()
+                    
+                    // Adjust layout based on size class
+                    if horizontalSizeClass == .compact {
+                        VStack(spacing: 20) {
+                            Button(action: {
+                                imageSource = .photoLibrary
+                                isImagePickerPresented = true
+                            }) {
+                                Text("Choose Image")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                            }
+
+                            Button(action: {
+                                imageSource = .camera
+                                isImagePickerPresented = true
+                            }) {
+                                Text("Capture Image")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    } else {
+                        HStack(spacing: 20) {
+                            Button(action: {
+                                imageSource = .photoLibrary
+                                isImagePickerPresented = true
+                            }) {
+                                Text("Choose Image")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                            }
+
+                            Button(action: {
+                                imageSource = .camera
+                                isImagePickerPresented = true
+                            }) {
+                                Text("Capture Image")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                            }
+                        }
                     }
                 }
-            }
-            .padding()
-            .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(selectedImage: $selectedImage, sourceType: imageSource == .camera ? .camera : .photoLibrary) { newImage in
-                    selectedImage = newImage
-                    isImageSubmitted = false
+                .padding(.bottom, horizontalSizeClass == .compact ? 10 : max(30, geometry.safeAreaInsets.bottom))
+                .ignoresSafeArea(.keyboard)  // Prevents the keyboard from overlapping
+                
+                .padding()
+                .sheet(isPresented: $isImagePickerPresented) {
+                    ImagePicker(selectedImage: $selectedImage, sourceType: imageSource == .camera ? .camera : .photoLibrary) { newImage in
+                        selectedImage = newImage
+                        isImageSubmitted = false
+                    }
                 }
             }
         }
         .navigationBarTitle("Fruit Classification", displayMode: .inline)
     }
 }
-
-
-
 
 struct AIFruitClassificationView_Previews: PreviewProvider {
     static var previews: some View {
