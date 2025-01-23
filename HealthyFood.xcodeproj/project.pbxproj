@@ -31,6 +31,7 @@
 		74D37A8F2D42D72E00CD88AF /* HealthyRecipesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */; };
 		74D37A912D42D74600CD88AF /* UploadHealthyRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */; };
 		74D37A942D42D79100CD88AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74D37A932D42D79100CD88AF /* FirebaseFirestore */; };
+		74D37A962D42EEDC00CD88AF /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A952D42EEDC00CD88AF /* RecipeDetailView.swift */; };
 		74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */; };
 		74D7E7882D3EF984008BB2D9 /* FruitClassification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */; };
 		74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7902D3F0F30008BB2D9 /* FruitNutritionView.swift */; };
@@ -59,6 +60,7 @@
 		74CF48B62D39BD0300418C84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRecipesModel.swift; sourceTree = "<group>"; };
 		74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHealthyRecipesView.swift; sourceTree = "<group>"; };
+		74D37A952D42EEDC00CD88AF /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFruitClassificationView.swift; sourceTree = "<group>"; };
 		74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FruitClassification.mlmodel; sourceTree = "<group>"; };
 		74D7E7892D3EFB16008BB2D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				7432FAAD2D40A41A004A1E11 /* LogOutView.swift */,
 				74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */,
 				74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */,
+				74D37A952D42EEDC00CD88AF /* RecipeDetailView.swift */,
 				74CF48B62D39BD0300418C84 /* GoogleService-Info.plist */,
 				74CF48992D39972D00418C84 /* Assets.xcassets */,
 				74CF489B2D39972D00418C84 /* Preview Content */,
@@ -229,6 +232,7 @@
 				746F02FC2D3A8A990017FA7E /* DetailView.swift in Sources */,
 				74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */,
 				74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */,
+				74D37A962D42EEDC00CD88AF /* RecipeDetailView.swift in Sources */,
 				74CF48AE2D39A14500418C84 /* HomeView.swift in Sources */,
 				743366662D3BC9BD00A62CD4 /* MapAnnotatedItem.swift in Sources */,
 				74CF48AA2D399E6F00418C84 /* LoginView.swift in Sources */,
@@ -380,11 +384,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyFood/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos for your notes.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to unlock your notes securely.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to your location to provide location-based services while the app ";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires access to your location to provide location-based services, even when the app is not ";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide location-based services while the app is ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to let you upload photos to your notes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -416,11 +421,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthyFood/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add your description here";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture photos for your notes.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app uses Face ID to unlock your notes securely.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to your location to provide location-based services while the app ";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app requires access to your location to provide location-based services, even when the app is not ";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide location-based services while the app is ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to let you upload photos to your notes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
