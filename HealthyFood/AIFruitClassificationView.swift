@@ -4,6 +4,7 @@
 //
 //  Created by Li Yiu Yeung  on 21/1/2025.
 //
+//
 
 import Foundation
 import SwiftUI
@@ -99,6 +100,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
+
 struct AIFruitClassificationView: View {
     @StateObject private var modelView = ModelView()
     @State private var selectedImage: UIImage?
@@ -167,12 +169,13 @@ struct AIFruitClassificationView: View {
                     
                     Spacer()
                     
-                    // Adjust layout based on size class
                     if horizontalSizeClass == .compact {
                         VStack(spacing: 20) {
                             Button(action: {
-                                imageSource = .photoLibrary
-                                isImagePickerPresented = true
+                                checkPhotoLibraryPermission {
+                                    imageSource = .photoLibrary
+                                    isImagePickerPresented = true
+                                }
                             }) {
                                 Text("Choose Image")
                                     .font(.headline)
@@ -184,8 +187,10 @@ struct AIFruitClassificationView: View {
                             }
 
                             Button(action: {
-                                imageSource = .camera
-                                isImagePickerPresented = true
+                                checkCameraPermission {
+                                    imageSource = .camera
+                                    isImagePickerPresented = true
+                                }
                             }) {
                                 Text("Capture Image")
                                     .font(.headline)
@@ -199,8 +204,10 @@ struct AIFruitClassificationView: View {
                     } else {
                         HStack(spacing: 20) {
                             Button(action: {
-                                imageSource = .photoLibrary
-                                isImagePickerPresented = true
+                                checkPhotoLibraryPermission {
+                                    imageSource = .photoLibrary
+                                    isImagePickerPresented = true
+                                }
                             }) {
                                 Text("Choose Image")
                                     .font(.headline)
@@ -212,8 +219,10 @@ struct AIFruitClassificationView: View {
                             }
 
                             Button(action: {
-                                imageSource = .camera
-                                isImagePickerPresented = true
+                                checkCameraPermission {
+                                    imageSource = .camera
+                                    isImagePickerPresented = true
+                                }
                             }) {
                                 Text("Capture Image")
                                     .font(.headline)
@@ -227,8 +236,7 @@ struct AIFruitClassificationView: View {
                     }
                 }
                 .padding(.bottom, horizontalSizeClass == .compact ? 10 : max(30, geometry.safeAreaInsets.bottom))
-                .ignoresSafeArea(.keyboard)  // Prevents the keyboard from overlapping
-                
+                .ignoresSafeArea(.keyboard)
                 .padding()
                 .sheet(isPresented: $isImagePickerPresented) {
                     ImagePicker(selectedImage: $selectedImage, sourceType: imageSource == .camera ? .camera : .photoLibrary) { newImage in
@@ -239,6 +247,46 @@ struct AIFruitClassificationView: View {
             }
         }
         .navigationBarTitle("Fruit Classification", displayMode: .inline)
+    }
+    
+    private func checkPhotoLibraryPermission(completion: @escaping () -> Void) {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            completion()
+        case .denied, .restricted:
+            print("No access to photo library")
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .authorized {
+                    completion()
+                } else {
+                    print("Access to photo library denied")
+                }
+            }
+        @unknown default:
+            fatalError("Unknown authorization status")
+        }
+    }
+    
+    private func checkCameraPermission(completion: @escaping () -> Void) {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .authorized:
+            completion()
+        case .denied, .restricted:
+            print("No access to camera")
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    completion()
+                } else {
+                    print("Access to camera denied")
+                }
+            }
+        @unknown default:
+            fatalError("Unknown authorization status")
+        }
     }
 }
 
