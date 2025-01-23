@@ -252,13 +252,13 @@ struct AIFruitClassificationView: View {
     private func checkPhotoLibraryPermission(completion: @escaping () -> Void) {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
-        case .authorized:
+        case .authorized, .limited:
             completion()
         case .denied, .restricted:
             print("No access to photo library")
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { status in
-                if status == .authorized {
+                if status == .authorized || status == .limited {
                     completion()
                 } else {
                     print("Access to photo library denied")
@@ -268,7 +268,7 @@ struct AIFruitClassificationView: View {
             fatalError("Unknown authorization status")
         }
     }
-    
+
     private func checkCameraPermission(completion: @escaping () -> Void) {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {
