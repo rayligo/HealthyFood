@@ -7,9 +7,10 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
-struct MapAnnotatedItem : Identifiable {
- let id = UUID()
- let name : String
- var coordinate : CLLocationCoordinate2D
+struct MapAnnotationItem: Identifiable {
+    let id = UUID()
+    var coordinate: CLLocationCoordinate2D
+    var tintColor: Color
 }

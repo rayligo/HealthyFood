@@ -42,7 +42,7 @@ struct NoteBookView: View {
             }
         }.sheet(isPresented: $showingSheet, content: {
             AddDeviceView(showingSheet: $showingSheet)
-        })
+        }).navigationViewStyle(StackNavigationViewStyle())
     }
 
     private func addItem() {

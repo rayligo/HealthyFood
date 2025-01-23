@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7432FAAE2D40A41A004A1E11 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7432FAAD2D40A41A004A1E11 /* LogOutView.swift */; };
+		743366642D3BAE8F00A62CD4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366632D3BAE8F00A62CD4 /* MapView.swift */; };
+		743366662D3BC9BD00A62CD4 /* MapAnnotatedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */; };
+		743366682D3BCAE000A62CD4 /* MapLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366672D3BCAE000A62CD4 /* MapLocationModel.swift */; };
+		743450E52D3DB6F000EB5560 /* HealthyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743450E42D3DB6F000EB5560 /* HealthyRestaurants.swift */; };
+		744302FF2D3A9E070054CAB0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744302FE2D3A9E070054CAB0 /* Persistence.swift */; };
+		746F02EB2D3A67100017FA7E /* NoteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EA2D3A67100017FA7E /* NoteBookView.swift */; };
+		746F02EE2D3A77540017FA7E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */; };
+		746F02F12D3A7B570017FA7E /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */; };
+		746F02F22D3A7B570017FA7E /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */; };
+		746F02FC2D3A8A990017FA7E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FB2D3A8A990017FA7E /* DetailView.swift */; };
+		746F02FE2D3A8DB90017FA7E /* AddDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */; };
 		74CF48962D39972B00418C84 /* HealthyFoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF48952D39972B00418C84 /* HealthyFoodApp.swift */; };
 		74CF489A2D39972D00418C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF48992D39972D00418C84 /* Assets.xcassets */; };
 		74CF489D2D39972D00418C84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF489C2D39972D00418C84 /* Preview Assets.xcassets */; };
@@ -16,9 +28,27 @@
 		74CF48B12D39B64E00418C84 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 74CF48B02D39B64E00418C84 /* FirebaseAnalytics */; };
 		74CF48B32D39B94900418C84 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 74CF48B22D39B94900418C84 /* FirebaseAuth */; };
 		74CF48B72D39BD0300418C84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74CF48B62D39BD0300418C84 /* GoogleService-Info.plist */; };
+		74D37A8F2D42D72E00CD88AF /* HealthyRecipesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */; };
+		74D37A912D42D74600CD88AF /* UploadHealthyRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */; };
+		74D37A942D42D79100CD88AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74D37A932D42D79100CD88AF /* FirebaseFirestore */; };
+		74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */; };
+		74D7E7882D3EF984008BB2D9 /* FruitClassification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */; };
+		74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7902D3F0F30008BB2D9 /* FruitNutritionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7432FAAD2D40A41A004A1E11 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
+		743366632D3BAE8F00A62CD4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotatedItem.swift; sourceTree = "<group>"; };
+		743366672D3BCAE000A62CD4 /* MapLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationModel.swift; sourceTree = "<group>"; };
+		743450E42D3DB6F000EB5560 /* HealthyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRestaurants.swift; sourceTree = "<group>"; };
+		744302FE2D3A9E070054CAB0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		746F02EA2D3A67100017FA7E /* NoteBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteBookView.swift; path = "Preview Content/NoteBookView.swift"; sourceTree = "<group>"; };
+		746F02ED2D3A77540017FA7E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
+		746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		746F02FB2D3A8A990017FA7E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceView.swift; sourceTree = "<group>"; };
 		74CF48922D39972B00418C84 /* HealthyFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CF48952D39972B00418C84 /* HealthyFoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyFoodApp.swift; sourceTree = "<group>"; };
 		74CF48992D39972D00418C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,6 +57,12 @@
 		74CF48A92D399E6F00418C84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ../LoginView.swift; sourceTree = "<group>"; };
 		74CF48AD2D39A14500418C84 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../HomeView.swift; sourceTree = "<group>"; };
 		74CF48B62D39BD0300418C84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRecipesModel.swift; sourceTree = "<group>"; };
+		74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHealthyRecipesView.swift; sourceTree = "<group>"; };
+		74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFruitClassificationView.swift; sourceTree = "<group>"; };
+		74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FruitClassification.mlmodel; sourceTree = "<group>"; };
+		74D7E7892D3EFB16008BB2D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D7E7902D3F0F30008BB2D9 /* FruitNutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitNutritionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +72,7 @@
 			files = (
 				74CF48B12D39B64E00418C84 /* FirebaseAnalytics in Frameworks */,
 				74CF48B32D39B94900418C84 /* FirebaseAuth in Frameworks */,
+				74D37A942D42D79100CD88AF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +82,11 @@
 		74CF48892D39972B00418C84 = {
 			isa = PBXGroup;
 			children = (
+				746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */,
+				746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */,
 				74CF48942D39972B00418C84 /* HealthyFood */,
 				74CF48932D39972B00418C84 /* Products */,
+				74D37A922D42D79100CD88AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,10 +101,26 @@
 		74CF48942D39972B00418C84 /* HealthyFood */ = {
 			isa = PBXGroup;
 			children = (
+				74D7E7892D3EFB16008BB2D9 /* Info.plist */,
+				74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */,
 				74CF48AD2D39A14500418C84 /* HomeView.swift */,
 				74CF48A72D399E1C00418C84 /* RegisterView.swift */,
 				74CF48A92D399E6F00418C84 /* LoginView.swift */,
 				74CF48952D39972B00418C84 /* HealthyFoodApp.swift */,
+				746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */,
+				746F02EA2D3A67100017FA7E /* NoteBookView.swift */,
+				746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */,
+				746F02FB2D3A8A990017FA7E /* DetailView.swift */,
+				744302FE2D3A9E070054CAB0 /* Persistence.swift */,
+				743366632D3BAE8F00A62CD4 /* MapView.swift */,
+				743366672D3BCAE000A62CD4 /* MapLocationModel.swift */,
+				743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */,
+				743450E42D3DB6F000EB5560 /* HealthyRestaurants.swift */,
+				74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */,
+				74D7E7902D3F0F30008BB2D9 /* FruitNutritionView.swift */,
+				7432FAAD2D40A41A004A1E11 /* LogOutView.swift */,
+				74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */,
+				74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */,
 				74CF48B62D39BD0300418C84 /* GoogleService-Info.plist */,
 				74CF48992D39972D00418C84 /* Assets.xcassets */,
 				74CF489B2D39972D00418C84 /* Preview Content */,
@@ -78,6 +134,13 @@
 				74CF489C2D39972D00418C84 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		74D37A922D42D79100CD88AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +162,7 @@
 			packageProductDependencies = (
 				74CF48B02D39B64E00418C84 /* FirebaseAnalytics */,
 				74CF48B22D39B94900418C84 /* FirebaseAuth */,
+				74D37A932D42D79100CD88AF /* FirebaseFirestore */,
 			);
 			productName = HealthyFood;
 			productReference = 74CF48922D39972B00418C84 /* HealthyFood.app */;
@@ -158,10 +222,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744302FF2D3A9E070054CAB0 /* Persistence.swift in Sources */,
+				743450E52D3DB6F000EB5560 /* HealthyRestaurants.swift in Sources */,
+				743366642D3BAE8F00A62CD4 /* MapView.swift in Sources */,
 				74CF48A82D399E1C00418C84 /* RegisterView.swift in Sources */,
+				746F02FC2D3A8A990017FA7E /* DetailView.swift in Sources */,
+				74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */,
+				74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */,
 				74CF48AE2D39A14500418C84 /* HomeView.swift in Sources */,
+				743366662D3BC9BD00A62CD4 /* MapAnnotatedItem.swift in Sources */,
 				74CF48AA2D399E6F00418C84 /* LoginView.swift in Sources */,
 				74CF48962D39972B00418C84 /* HealthyFoodApp.swift in Sources */,
+				746F02EB2D3A67100017FA7E /* NoteBookView.swift in Sources */,
+				74D7E7882D3EF984008BB2D9 /* FruitClassification.mlmodel in Sources */,
+				746F02FE2D3A8DB90017FA7E /* AddDeviceView.swift in Sources */,
+				746F02EE2D3A77540017FA7E /* Model.xcdatamodeld in Sources */,
+				743366682D3BCAE000A62CD4 /* MapLocationModel.swift in Sources */,
+				7432FAAE2D40A41A004A1E11 /* LogOutView.swift in Sources */,
+				746F02F12D3A7B570017FA7E /* Device+CoreDataClass.swift in Sources */,
+				74D37A912D42D74600CD88AF /* UploadHealthyRecipesView.swift in Sources */,
+				746F02F22D3A7B570017FA7E /* Device+CoreDataProperties.swift in Sources */,
+				74D37A8F2D42D72E00CD88AF /* HealthyRecipesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +379,18 @@
 				DEVELOPMENT_TEAM = X75HQD2N5R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthyFood/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Add your description here";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,11 +415,18 @@
 				DEVELOPMENT_TEAM = X75HQD2N5R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthyFood/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add your description here";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Add your description here";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,7 +484,25 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseAuth;
 		};
+		74D37A932D42D79100CD88AF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74CF48AF2D39B64E00418C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				746F02ED2D3A77540017FA7E /* Model.xcdatamodel */,
+			);
+			currentVersion = 746F02ED2D3A77540017FA7E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74CF488A2D39972B00418C84 /* Project object */;
 }
