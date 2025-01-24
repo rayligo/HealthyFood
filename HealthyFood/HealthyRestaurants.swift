@@ -8,12 +8,14 @@
 import Foundation
 import MapKit
 
+//Healthy restaurant structure
 struct HealthyRestaurants: Identifiable {
  let id = UUID()
  let name : String
  var coordinate : CLLocationCoordinate2D
 }
 
+//Healthy restaurant coordinates
 let restaurants = [
     HealthyRestaurants(name: "Kenko Syokuhin Ramen", coordinate: CLLocationCoordinate2D(latitude: 22.2849, longitude: 114.1549)),
     HealthyRestaurants(name: "Health Workshop", coordinate: CLLocationCoordinate2D(latitude: 22.341, longitude: 114.1875)),

@@ -10,6 +10,7 @@ import Combine
 import CoreLocation
 import MapKit
 
+
 class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastLocation: CLLocation?
@@ -18,7 +19,8 @@ class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     private let locationManager: CLLocationManager
     private var cancellables = Set<AnyCancellable>()
-
+    
+    // Map initialization
     override init() {
         locationManager = CLLocationManager()
         authorizationStatus = locationManager.authorizationStatus
@@ -30,7 +32,8 @@ class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-
+        
+        //Last location update
         $lastLocation
             .receive(on: DispatchQueue.main)
             .sink { [weak self] location in
@@ -41,17 +44,17 @@ class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
             .store(in: &cancellables)
     }
-
+    // Request location permission
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
-
+    // Handle authorization changes
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         DispatchQueue.main.async { [weak self] in
             self?.authorizationStatus = manager.authorizationStatus
         }
     }
-
+    // Handle location updates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         DispatchQueue.main.async { [weak self] in
@@ -59,7 +62,7 @@ class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             self?.updateCoordinateRegion(with: location)
         }
     }
-
+    // Update new coordinates
     private func updateCoordinateRegion(with location: CLLocation) {
         coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                               span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
