@@ -5,6 +5,7 @@
 //  Created by Li Yiu Yeung  on 18/1/2025.
 //
 
+
 import Combine
 import CoreLocation
 import MapKit
@@ -44,29 +45,25 @@ class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        DispatchQueue.main.async {
-            self.authorizationStatus = manager.authorizationStatus
+        DispatchQueue.main.async { [weak self] in
+            self?.authorizationStatus = manager.authorizationStatus
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let location = locations.last {
-                DispatchQueue.main.async { [weak self] in
-                    self?.lastLocation = location
-                }
-                self.updateCoordinateRegion(with: location)
-            }
+        guard let location = locations.last else { return }
+        DispatchQueue.main.async { [weak self] in
+            self?.lastLocation = location
+            self?.updateCoordinateRegion(with: location)
         }
     }
 
     private func updateCoordinateRegion(with location: CLLocation) {
-        DispatchQueue.main.async { [weak self] in
-            self?.coordinateRegion = MKCoordinateRegion(center: location.coordinate,
-                                                        span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-            self?.currentLocationAnnotation = CurrentLocationAnnotation(coordinate: location.coordinate)
-        }
+        coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                              span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        currentLocationAnnotation = CurrentLocationAnnotation(coordinate: location.coordinate)
     }
 }
+
