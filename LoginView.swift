@@ -15,8 +15,10 @@ class SignInViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isLoading = false
     
+    
     func signIn(email: String, password: String) {
         guard !email.isEmpty, !password.isEmpty else {
+            //Field is empty and displays an error
             errorMessage = "Please fill in all fields."
             return
         }
@@ -35,8 +37,8 @@ class SignInViewModel: ObservableObject {
 
 struct LoginView: View {
     @Binding var isLoggedOut: Bool
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email = "test@gmail.com"
+    @State private var password = "123456"
     @StateObject private var viewModel = SignInViewModel()
     @State private var isNavigatingToHomeView = false
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -49,8 +51,10 @@ struct LoginView: View {
                     .fontWeight(.bold)
                 
                 if horizontalSizeClass == .compact {
+                
                     verticalLayout
                 } else {
+                    
                     horizontalLayout
                 }
 

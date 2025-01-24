@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 
+//Registration Function
 class RegisterViewModel: ObservableObject {
     @Published var user: User?
     @Published var errorMessage: String?

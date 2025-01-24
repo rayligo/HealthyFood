@@ -53,6 +53,7 @@ struct HomeView: View {
                                 }
                             }
                         }
+                        //Get data when the view is displaye
                         .onAppear {
                             HomedataViewModel.getData()
                         }
