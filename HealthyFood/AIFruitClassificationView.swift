@@ -19,11 +19,11 @@ var Fruit: String = "Unknown"
 enum ImageSource {
     case camera, photoLibrary
 }
-
+//Processing fruit classification model
 class ModelView: ObservableObject {
     @Published var classificationLabel: String = "No results yet"
     @Published var fruitIdentifier: String? = nil
-
+    //Structure the fruits in the picture
     func classify(image: UIImage) {
         guard let ciImage = CIImage(image: image) else {
             classificationLabel = "Error: Could not convert UIImage to CIImage"
@@ -60,7 +60,7 @@ class ModelView: ObservableObject {
         }
     }
 }
-
+//Image selector structure
 struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) private var presentationMode
     @Binding var selectedImage: UIImage?
@@ -168,6 +168,8 @@ struct AIFruitClassificationView: View {
                     }
                     
                     Spacer()
+                    // Button to select or capture an image
+                    //Display according to device orientation
                     
                     if horizontalSizeClass == .compact {
                         VStack(spacing: 20) {
@@ -248,7 +250,7 @@ struct AIFruitClassificationView: View {
         }
         .navigationBarTitle("Fruit Classification", displayMode: .inline)
     }
-    
+    //photo library permissions
     private func checkPhotoLibraryPermission(completion: @escaping () -> Void) {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
@@ -268,7 +270,7 @@ struct AIFruitClassificationView: View {
             fatalError("Unknown authorization status")
         }
     }
-
+    //Camera permissions
     private func checkCameraPermission(completion: @escaping () -> Void) {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {

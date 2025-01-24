@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//Display fruit nutritional information
 struct FruitNutritionView: View {
     var fruit: String
     
@@ -140,7 +141,7 @@ struct FruitNutritionView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-
+    // Function to determine what fruit to display
     func shouldShowFruit(_ fruit: String, target: String) -> Bool {
         return fruit == target
     }

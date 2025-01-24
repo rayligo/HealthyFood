@@ -43,7 +43,7 @@ struct LogOutView: View {
         .navigationBarHidden(true)
         .navigationBarTitle("")
     }
-
+//logout Function
     func handleLogout() {
         do {
             try Auth.auth().signOut()

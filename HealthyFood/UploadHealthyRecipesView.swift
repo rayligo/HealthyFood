@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import PhotosUI
 
+//Close the keyboard function
 extension UIApplication {
     func endEditing(_ force: Bool) {
         guard let window = connectedScenes
@@ -36,11 +37,13 @@ struct UploadHealthyRecipesView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack {
+                        //Enter a recipe name
                         TextField("Name", text: $AddName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
                         
                         HStack {
+                            //Select an image from your photo library
                             Button(action: {
                                 showingImagePicker = true
                             }) {
@@ -73,7 +76,7 @@ struct UploadHealthyRecipesView: View {
                                 CameraPicker(image: $AddImage)
                             }
                         }
-                        
+                        //Enter the text label of the material
                         VStack(alignment: .leading) {
                             Text("Material")
                                 .font(.headline)
@@ -89,6 +92,7 @@ struct UploadHealthyRecipesView: View {
                         }
                         
                         VStack(alignment: .leading) {
+                            //Enter a text label for the food recipe
                             Text("Practice")
                                 .font(.headline)
                                 .foregroundColor(.gray)
@@ -101,7 +105,7 @@ struct UploadHealthyRecipesView: View {
                                         .stroke(Color.gray, lineWidth: 1)
                                 )
                         }
-                        
+                        //Add recipe button
                         Button(action: {
                             if !AddName.isEmpty && AddImage != nil && !AddMaterial.isEmpty && !AddPractice.isEmpty {
                                 viewModel.addDate(name: AddName, image: AddImage!, material: AddMaterial.replacingOccurrences(of: "\n", with: "\\n"), practice: AddPractice.replacingOccurrences(of: "\n", with: "\\n"))
@@ -140,7 +144,7 @@ struct UploadHealthyRecipesView: View {
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
+//Image Selector
 struct CustomImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     
@@ -177,6 +181,7 @@ struct CustomImagePicker: UIViewControllerRepresentable {
     }
 }
 
+//Camera Selector
 struct CameraPicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     

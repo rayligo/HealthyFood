@@ -4,19 +4,23 @@
 //
 //  Created by Li Yiu Yeung  on 17/1/2025.
 //
-import CoreData
 
+import CoreData
+//CoreData structure
 struct PersistenceController {
     static let shared = PersistenceController()
     
     let container: NSPersistentContainer
     
+    // Initializer for PersistenceController
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Model")
         
+        //If you use memory storage, set the URL to
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        // Load storage and handle errors
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
