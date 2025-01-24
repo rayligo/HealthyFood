@@ -23,8 +23,6 @@ class CurrentLocationAnnotation: NSObject, MKAnnotation, Identifiable {
 struct MapView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject var locationModel = MapLocationModel()
-    @State private var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-                                                                                  span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
@@ -36,6 +34,7 @@ struct MapView: View {
                         MapMarker(coordinate: annotation.coordinate, tint: annotation.tintColor)
                     }
                     .frame(height: UIScreen.main.bounds.height * 0.5)
+                    .edgesIgnoringSafeArea(.all)
                 }
                 .padding()
             } else {
@@ -64,4 +63,3 @@ struct MapView_Previews: PreviewProvider {
         MapView()
     }
 }
-
