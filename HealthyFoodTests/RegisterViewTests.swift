@@ -11,14 +11,18 @@ import FirebaseAuth
 
 
 class RegisterViewTests: XCTestCase {
-
-
     
     func testPasswordMismatch() {
         let viewModel = RegisterViewModel()
         viewModel.register(email: "test@example.com", password: "password123", confirmPassword: "password124")
         
         XCTAssertEqual(viewModel.errorMessage, "Passwords do not match.", "Passwords do not match, but no error message was received.")
+        XCTAssertNil(viewModel.user, "User should not be registered, but user object is not nil.")
+    }
+    func testPasswordMismatch1() {
+        let viewModel = RegisterViewModel()
+        viewModel.register(email: "test@example.com", password: "password124", confirmPassword: "password124")
+        
         XCTAssertNil(viewModel.user, "User should not be registered, but user object is not nil.")
     }
 }
