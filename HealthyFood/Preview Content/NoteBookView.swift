@@ -6,81 +6,7 @@
 //
 
 
-//import Foundation
-//import SwiftUI
-//
-//struct NoteBookView: View {
-//    @Environment(\.managedObjectContext) private var viewContext
-//    
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Device.timestamp, ascending: true)],
-//        animation: .default)
-//    private var devices: FetchedResults<Device>
-//
-//    @State var showingSheet: Bool = false
-//    
-//    var body: some View {
-//        NavigationView {
-//            List {
-//                ForEach(devices) { device in
-//                    NavigationLink {
-//                        DetalView(device: device)
-//                    } label: {
-//                        Text("\(device.title ?? "Unknown Title")")
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                ToolbarItem {
-//                    Button(action: {
-//                        showingSheet = true
-//                    }) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//        }.sheet(isPresented: $showingSheet, content: {
-//            AddDeviceView(showingSheet: $showingSheet)
-//        }).navigationViewStyle(StackNavigationViewStyle())
-//    }
-//
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Device(context: viewContext)
-//            newItem.timestamp = Date()
-//            newItem.title = "New Device"
-//            newItem.content = "Device Content"
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-//
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { devices[$0] }.forEach(viewContext.delete)
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-//}
-//
-//struct NoteBookView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let persistenceController = PersistenceController.shared
-//        NoteBookView()
-//            .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//    }
-//}
+
 import Foundation
 import SwiftUI
 import LocalAuthentication
@@ -92,7 +18,7 @@ struct NoteBookView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Device.timestamp, ascending: true)],
         animation: .default)
     private var devices: FetchedResults<Device>
-
+    
     @State var showingSheet: Bool = false
     @State private var isUnlocked = false
     
@@ -103,6 +29,7 @@ struct NoteBookView: View {
                     ForEach(devices) { device in
                         NavigationLink {
                             DetalView(device: device)
+                                .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to destination view
                         } label: {
                             Text("\(device.title ?? "Unknown Title")")
                         }
@@ -121,11 +48,13 @@ struct NoteBookView: View {
             }
             .sheet(isPresented: $showingSheet, content: {
                 AddDeviceView(showingSheet: $showingSheet)
+                    .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to sheet view
             })
-            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to main NavigationView
         } else {
             VStack {
                 Text("Please authenticate to view your notebooks.")
+                //Button to start authentication
                 Button(action: authenticate) {
                     Text("Authenticate")
                         .font(.headline)
@@ -135,9 +64,11 @@ struct NoteBookView: View {
                         .cornerRadius(10)
                 }
             }
+            // Apply authentication view
+            .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to authentication view
         }
     }
-
+    //Authenticate User
     private func authenticate() {
         let context = LAContext()
         var error: NSError?
@@ -150,15 +81,15 @@ struct NoteBookView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // Handle authentication failure
+                        
                     }
                 }
             }
         } else {
-            // Handle no biometric authentication available
+           
         }
     }
-    
+    //add a new device
     private func addItem() {
         withAnimation {
             let newItem = Device(context: viewContext)
@@ -174,7 +105,7 @@ struct NoteBookView: View {
             }
         }
     }
-
+    //delete selected devices
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { devices[$0] }.forEach(viewContext.delete)
