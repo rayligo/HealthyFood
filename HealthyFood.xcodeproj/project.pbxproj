@@ -32,10 +32,22 @@
 		74D37A912D42D74600CD88AF /* UploadHealthyRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */; };
 		74D37A942D42D79100CD88AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 74D37A932D42D79100CD88AF /* FirebaseFirestore */; };
 		74D37A962D42EEDC00CD88AF /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A952D42EEDC00CD88AF /* RecipeDetailView.swift */; };
+		74D37A9E2D4311CA00CD88AF /* RegisterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37A9D2D4311CA00CD88AF /* RegisterViewTests.swift */; };
+		74D37AA52D431B2E00CD88AF /* loginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D37AA42D431B2E00CD88AF /* loginViewTests.swift */; };
 		74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */; };
 		74D7E7882D3EF984008BB2D9 /* FruitClassification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */; };
 		74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7E7902D3F0F30008BB2D9 /* FruitNutritionView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74D37A9F2D4311CA00CD88AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74CF488A2D39972B00418C84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74CF48912D39972B00418C84;
+			remoteInfo = HealthyFood;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7432FAAD2D40A41A004A1E11 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
@@ -61,6 +73,9 @@
 		74D37A8E2D42D72E00CD88AF /* HealthyRecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRecipesModel.swift; sourceTree = "<group>"; };
 		74D37A902D42D74600CD88AF /* UploadHealthyRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHealthyRecipesView.swift; sourceTree = "<group>"; };
 		74D37A952D42EEDC00CD88AF /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		74D37A9B2D4311CA00CD88AF /* HealthyFoodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthyFoodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D37A9D2D4311CA00CD88AF /* RegisterViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewTests.swift; sourceTree = "<group>"; };
+		74D37AA42D431B2E00CD88AF /* loginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewTests.swift; sourceTree = "<group>"; };
 		74D7E77F2D3EBBF3008BB2D9 /* AIFruitClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFruitClassificationView.swift; sourceTree = "<group>"; };
 		74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FruitClassification.mlmodel; sourceTree = "<group>"; };
 		74D7E7892D3EFB16008BB2D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +93,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74D37A982D4311CA00CD88AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +109,7 @@
 				746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */,
 				746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */,
 				74CF48942D39972B00418C84 /* HealthyFood */,
+				74D37A9C2D4311CA00CD88AF /* HealthyFoodTests */,
 				74CF48932D39972B00418C84 /* Products */,
 				74D37A922D42D79100CD88AF /* Frameworks */,
 			);
@@ -96,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				74CF48922D39972B00418C84 /* HealthyFood.app */,
+				74D37A9B2D4311CA00CD88AF /* HealthyFoodTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +170,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		74D37A9C2D4311CA00CD88AF /* HealthyFoodTests */ = {
+			isa = PBXGroup;
+			children = (
+				74D37A9D2D4311CA00CD88AF /* RegisterViewTests.swift */,
+				74D37AA42D431B2E00CD88AF /* loginViewTests.swift */,
+			);
+			path = HealthyFoodTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,6 +204,24 @@
 			productReference = 74CF48922D39972B00418C84 /* HealthyFood.app */;
 			productType = "com.apple.product-type.application";
 		};
+		74D37A9A2D4311CA00CD88AF /* HealthyFoodTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D37AA12D4311CA00CD88AF /* Build configuration list for PBXNativeTarget "HealthyFoodTests" */;
+			buildPhases = (
+				74D37A972D4311CA00CD88AF /* Sources */,
+				74D37A982D4311CA00CD88AF /* Frameworks */,
+				74D37A992D4311CA00CD88AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74D37AA02D4311CA00CD88AF /* PBXTargetDependency */,
+			);
+			name = HealthyFoodTests;
+			productName = HealthyFoodTests;
+			productReference = 74D37A9B2D4311CA00CD88AF /* HealthyFoodTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,6 +234,10 @@
 				TargetAttributes = {
 					74CF48912D39972B00418C84 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					74D37A9A2D4311CA00CD88AF = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 74CF48912D39972B00418C84;
 					};
 				};
 			};
@@ -203,6 +258,7 @@
 			projectRoot = "";
 			targets = (
 				74CF48912D39972B00418C84 /* HealthyFood */,
+				74D37A9A2D4311CA00CD88AF /* HealthyFoodTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +271,13 @@
 				74CF489D2D39972D00418C84 /* Preview Assets.xcassets in Resources */,
 				74CF489A2D39972D00418C84 /* Assets.xcassets in Resources */,
 				74CF48B72D39BD0300418C84 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D37A992D4311CA00CD88AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +313,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74D37A972D4311CA00CD88AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D37AA52D431B2E00CD88AF /* loginViewTests.swift in Sources */,
+				74D37A9E2D4311CA00CD88AF /* RegisterViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74D37AA02D4311CA00CD88AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74CF48912D39972B00418C84 /* HealthyFood */;
+			targetProxy = 74D37A9F2D4311CA00CD88AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		74CF489E2D39972D00418C84 /* Debug */ = {
@@ -446,6 +526,40 @@
 			};
 			name = Release;
 		};
+		74D37AA22D4311CA00CD88AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.ive.HealthyFoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthyFood.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HealthyFood";
+			};
+			name = Debug;
+		};
+		74D37AA32D4311CA00CD88AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.ive.HealthyFoodTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthyFood.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HealthyFood";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -463,6 +577,15 @@
 			buildConfigurations = (
 				74CF48A12D39972D00418C84 /* Debug */,
 				74CF48A22D39972D00418C84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D37AA12D4311CA00CD88AF /* Build configuration list for PBXNativeTarget "HealthyFoodTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D37AA22D4311CA00CD88AF /* Debug */,
+				74D37AA32D4311CA00CD88AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
