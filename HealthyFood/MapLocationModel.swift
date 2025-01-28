@@ -5,68 +5,56 @@
 //  Created by Li Yiu Yeung  on 18/1/2025.
 //
 
-
-import Combine
 import CoreLocation
 import MapKit
 
-
 class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var authorizationStatus: CLAuthorizationStatus
-    @Published var lastLocation: CLLocation?
-    @Published var coordinateRegion: MKCoordinateRegion
+    @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 22.2849, longitude: 114.1549), // Initial location
+        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    )
     @Published var currentLocationAnnotation: CurrentLocationAnnotation?
-
-    private let locationManager: CLLocationManager
-    private var cancellables = Set<AnyCancellable>()
+    @Published var authorizationStatus: CLAuthorizationStatus
     
-    // Map initialization
+    private var locationManager: CLLocationManager
+    private var shouldUpdateRegion: Bool = true
+
     override init() {
-        locationManager = CLLocationManager()
-        authorizationStatus = locationManager.authorizationStatus
-        coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-                                              span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-
+        self.authorizationStatus = .notDetermined
+        self.locationManager = CLLocationManager()
         super.init()
-
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        
-        //Last location update
-        $lastLocation
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] location in
-                guard let self = self else { return }
-                if let location = location {
-                    self.updateCoordinateRegion(with: location)
-                }
-            }
-            .store(in: &cancellables)
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
-    // Request location permission
+    
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
-    // Handle authorization changes
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        DispatchQueue.main.async { [weak self] in
-            self?.authorizationStatus = manager.authorizationStatus
+    
+    func setupInitialRegion() {
+        // Setup initial region
+        if let location = locationManager.location {
+            coordinateRegion.center = location.coordinate
         }
     }
-    // Handle location updates
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorizationStatus = status
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            manager.startUpdatingLocation()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        DispatchQueue.main.async { [weak self] in
-            self?.lastLocation = location
-            self?.updateCoordinateRegion(with: location)
+        guard let location = locations.first else { return }
+        self.currentLocationAnnotation = CurrentLocationAnnotation(coordinate: location.coordinate)
+        
+        if shouldUpdateRegion {
+            self.coordinateRegion.center = location.coordinate
         }
     }
-    // Update new coordinates
-    private func updateCoordinateRegion(with location: CLLocation) {
-        coordinateRegion = MKCoordinateRegion(center: location.coordinate,
-                                              span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-        currentLocationAnnotation = CurrentLocationAnnotation(coordinate: location.coordinate)
+    
+    func setShouldUpdateRegion(_ shouldUpdate: Bool) {
+        self.shouldUpdateRegion = shouldUpdate
     }
 }
-

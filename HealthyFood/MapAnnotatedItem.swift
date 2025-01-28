@@ -8,9 +8,11 @@
 import Foundation
 import MapKit
 import SwiftUI
+
 //Map structure
 struct MapAnnotationItem: Identifiable {
     let id = UUID()
     var coordinate: CLLocationCoordinate2D
     var tintColor: Color
+    var restaurant: HealthyRestaurants
 }
