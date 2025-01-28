@@ -10,6 +10,8 @@ import Firebase
 import FirebaseFirestore
 import PhotosUI
 
+
+
 //Close the keyboard function
 extension UIApplication {
     func endEditing(_ force: Bool) {
@@ -41,6 +43,15 @@ struct UploadHealthyRecipesView: View {
                         TextField("Name", text: $AddName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
+                        
+                        if let image = AddImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxHeight: 200)
+                                .cornerRadius(10)
+                                .padding()
+                        }
                         
                         HStack {
                             //Select an image from your photo library
@@ -76,6 +87,9 @@ struct UploadHealthyRecipesView: View {
                                 CameraPicker(image: $AddImage)
                             }
                         }
+
+
+                        
                         //Enter the text label of the material
                         VStack(alignment: .leading) {
                             Text("Material")
@@ -215,6 +229,5 @@ struct CameraPicker: UIViewControllerRepresentable {
 struct UploadHealthyRecipesView_Previews: PreviewProvider {
     static var previews: some View {
         UploadHealthyRecipesView()
-        
     }
 }
