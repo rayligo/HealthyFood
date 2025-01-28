@@ -101,11 +101,13 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 }
 
+
 struct AIFruitClassificationView: View {
     @StateObject private var modelView = ModelView()
     @State private var selectedImage: UIImage?
     @State private var isImagePickerPresented = false
     @State private var imageSource: ImageSource = .photoLibrary
+    @State private var navigateToNutritionView = false
     @State private var isImageSubmitted = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -128,34 +130,19 @@ struct AIFruitClassificationView: View {
                             )
                     }
                     
-                    if isImageSubmitted {
-                        Text(modelView.classificationLabel)
-                            .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                        
-                        if let fruitIdentifier = modelView.fruitIdentifier {
-                            NavigationLink(destination: FruitNutritionView(fruit: fruitIdentifier)) {
-                                Text("Go to Fruit Nutrition")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(maxWidth: .infinity, maxHeight: 50)
-                                    .background(Color.orange)
-                                    .cornerRadius(8)
-                            }
-                        }
-                    } else {
-                        Text("Submit an image to classify it")
-                            .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding()
+                    NavigationLink(
+                        destination: FruitNutritionView(fruit: modelView.fruitIdentifier ?? ""),
+                        isActive: $navigateToNutritionView
+                    ) {
+                        EmptyView()
                     }
 
                     Button(action: {
                         if let selectedImage = selectedImage {
                             modelView.classify(image: selectedImage)
-                            isImageSubmitted = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                navigateToNutritionView = true
+                            }
                         }
                     }) {
                         Text("Submit")
@@ -168,9 +155,8 @@ struct AIFruitClassificationView: View {
                     }
                     
                     Spacer()
-                    // Button to select or capture an image
+                    //Button to select or capture an image
                     //Display according to device orientation
-                    
                     if horizontalSizeClass == .compact {
                         VStack(spacing: 20) {
                             Button(action: {
@@ -250,7 +236,8 @@ struct AIFruitClassificationView: View {
         }
         .navigationBarTitle("Fruit Classification", displayMode: .inline)
     }
-    //photo library permissions
+    
+    //Check photo library permissions
     private func checkPhotoLibraryPermission(completion: @escaping () -> Void) {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
@@ -270,7 +257,8 @@ struct AIFruitClassificationView: View {
             fatalError("Unknown authorization status")
         }
     }
-    //Camera permissions
+    
+    //Check camera permissions
     private func checkCameraPermission(completion: @escaping () -> Void) {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {
