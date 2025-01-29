@@ -12,7 +12,6 @@ import Firebase
 
 struct LogOutView: View {
     @Binding var isLoggedOut: Bool
-    @State private var isNavigatingToRegister = false
 
     var body: some View {
         VStack {
@@ -30,25 +29,14 @@ struct LogOutView: View {
                     .cornerRadius(8)
             }
             .padding()
+
         }
-        .navigationBarHidden(true)
-        .navigationBarTitle("")
-        .background(
-            NavigationLink(
-                destination: HomeView().navigationBarHidden(true).navigationBarTitle(""),
-                isActive: $isNavigatingToRegister,
-                label: { EmptyView() }
-            )
-        )
-        .navigationBarHidden(true)
-        .navigationBarTitle("")
     }
 //logout Function
     func handleLogout() {
         do {
             try Auth.auth().signOut()
             isLoggedOut = true
-            isNavigatingToRegister = true
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

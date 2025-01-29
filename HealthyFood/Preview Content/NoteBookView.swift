@@ -65,7 +65,7 @@ struct NoteBookView: View {
                 }
             }
             // Apply authentication view
-            .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to authentication view
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
     //Authenticate User

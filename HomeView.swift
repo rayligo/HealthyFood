@@ -19,7 +19,8 @@ struct HomeView: View {
         Group {
             if isLoggedOut {
                 NavigationLink(
-                    destination: LoginView(isLoggedOut: $isLoggedOut),
+                    //log out
+                    destination: LoginView(isLoggedOut: $isLoggedOut).navigationBarBackButtonHidden(true),
                     isActive: $isNavigatingToLogin,
                     label: { EmptyView() }
                 ).hidden()

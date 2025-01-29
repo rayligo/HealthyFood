@@ -9,7 +9,7 @@ import CoreLocation
 import MapKit
 //Manage User Location
 class MapLocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    //// Update the corresponding map view
+    // Update the corresponding map view
     @Published var coordinateRegion: MKCoordinateRegion = MKCoordinateRegion(
         // Initial position
         center: CLLocationCoordinate2D(latitude: 22.2849, longitude: 114.1549),

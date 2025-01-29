@@ -39,7 +39,6 @@ class ModelView: ObservableObject {
         let request = VNCoreMLRequest(model: model) { [weak self] request, error in
             DispatchQueue.main.async {
                 if let results = request.results as? [VNClassificationObservation], let firstResult = results.first {
-                    self?.classificationLabel = "\(firstResult.identifier) (\(firstResult.confidence * 100)%)"
                     self?.fruitIdentifier = firstResult.identifier
                     Fruit = "\(firstResult.identifier)"
                 } else {

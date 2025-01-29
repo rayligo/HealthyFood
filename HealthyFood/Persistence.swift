@@ -14,7 +14,7 @@ struct PersistenceController {
     
     // Initializer for PersistenceController
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Model")
+        container = NSPersistentContainer(name: "NoteBookModel")
         
         //If you use memory storage, set the URL to
         if inMemory {
