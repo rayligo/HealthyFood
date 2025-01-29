@@ -37,8 +37,8 @@ class SignInViewModel: ObservableObject {
 
 struct LoginView: View {
     @Binding var isLoggedOut: Bool
-    @State private var email = "test@gmail.com"
-    @State private var password = "123456"
+    @State private var email = ""
+    @State private var password = ""
     @StateObject private var viewModel = SignInViewModel()
     @State private var isNavigatingToHomeView = false
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -51,10 +51,8 @@ struct LoginView: View {
                     .fontWeight(.bold)
                 
                 if horizontalSizeClass == .compact {
-                
                     verticalLayout
                 } else {
-                    
                     horizontalLayout
                 }
 
