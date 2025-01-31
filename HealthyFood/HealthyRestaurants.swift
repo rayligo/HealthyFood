@@ -67,12 +67,10 @@ let restaurants = [
     HealthyRestaurants(name: "Lean Meals", coordinate: CLLocationCoordinate2D(latitude: 22.2853, longitude: 114.1382)),
     HealthyRestaurants(name: "The Green Fork", coordinate: CLLocationCoordinate2D(latitude: 22.479, longitude: 114.1576)),
     HealthyRestaurants(name: "Joyful Palace Banquet Hall", coordinate: CLLocationCoordinate2D(latitude: 22.4777, longitude: 114.04566)),
-    HealthyRestaurants(name: "Macau Taipa Portuguese Restaurant", coordinate: CLLocationCoordinate2D(latitude: 22.477, longitude: 114.0455)),
     HealthyRestaurants(name: "New Bright Garden Seafood Restaurant", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0452)),
     HealthyRestaurants(name: "Happy Forest Cafe", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0460)),
     HealthyRestaurants(name: "Scenic Garden Country Club (Ting Lin Pavilion)", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0458)),
     HealthyRestaurants(name: "Maxim's Restaurant", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0453)),
-    HealthyRestaurants(name: "Cafe de Coral", coordinate: CLLocationCoordinate2D(latitude: 22.479, longitude: 114.0451)),
     HealthyRestaurants(name: "Pacific Coffee", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0454)),
     HealthyRestaurants(name: "CHICKEN FACTORY", coordinate: CLLocationCoordinate2D(latitude: 22.478, longitude: 114.0456))
 

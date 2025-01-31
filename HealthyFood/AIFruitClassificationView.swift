@@ -118,13 +118,14 @@ struct AIFruitClassificationView: View {
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: geometry.size.height * 0.3)
+                            .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.8
+                                )
                     } else {
                         Rectangle()
                             .fill(Color.gray.opacity(0.2))
                             .frame(height: geometry.size.height * 0.3)
                             .overlay(
-                                Text("Select or capture an image")
+                                Text("Select or Take Photo an image")
                                     .foregroundColor(.gray)
                             )
                     }
@@ -179,7 +180,7 @@ struct AIFruitClassificationView: View {
                                     isImagePickerPresented = true
                                 }
                             }) {
-                                Text("Capture Image")
+                                Text("Take Photo")
                                     .font(.headline)
                                     .foregroundColor(.white)
                                     .padding()

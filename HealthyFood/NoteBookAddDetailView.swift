@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct AddDeviceView: View {
+struct NoteBookAddDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var showingSheet: Bool
     
@@ -41,8 +41,7 @@ struct AddDeviceView: View {
             }
             Spacer()
         }
-        //navigation style
-        .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // Create a new device and save it

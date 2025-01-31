@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7429D4FA2D43A47800653ED6 /* MapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429D4F92D43A47800653ED6 /* MapViewTests.swift */; };
 		7432FAAE2D40A41A004A1E11 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7432FAAD2D40A41A004A1E11 /* LogOutView.swift */; };
 		743366642D3BAE8F00A62CD4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366632D3BAE8F00A62CD4 /* MapView.swift */; };
 		743366662D3BC9BD00A62CD4 /* MapAnnotatedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */; };
 		743366682D3BCAE000A62CD4 /* MapLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743366672D3BCAE000A62CD4 /* MapLocationModel.swift */; };
 		743450E52D3DB6F000EB5560 /* HealthyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743450E42D3DB6F000EB5560 /* HealthyRestaurants.swift */; };
-		744302FF2D3A9E070054CAB0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744302FE2D3A9E070054CAB0 /* Persistence.swift */; };
+		744302FF2D3A9E070054CAB0 /* NoteBookPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744302FE2D3A9E070054CAB0 /* NoteBookPersistence.swift */; };
 		746F02EB2D3A67100017FA7E /* NoteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EA2D3A67100017FA7E /* NoteBookView.swift */; };
-		746F02EE2D3A77540017FA7E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */; };
+		746F02EE2D3A77540017FA7E /* NoteBookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EC2D3A77540017FA7E /* NoteBookModel.xcdatamodeld */; };
 		746F02F12D3A7B570017FA7E /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */; };
 		746F02F22D3A7B570017FA7E /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */; };
-		746F02FC2D3A8A990017FA7E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FB2D3A8A990017FA7E /* DetailView.swift */; };
-		746F02FE2D3A8DB90017FA7E /* AddDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */; };
+		746F02FC2D3A8A990017FA7E /* NoteBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FB2D3A8A990017FA7E /* NoteBookDetailView.swift */; };
+		746F02FE2D3A8DB90017FA7E /* NoteBookAddDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F02FD2D3A8DB90017FA7E /* NoteBookAddDetailView.swift */; };
+		74A5F32C2D44043000D3CD88 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 74A5F32B2D44043000D3CD88 /* ZIPFoundation */; };
 		74CF48962D39972B00418C84 /* HealthyFoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF48952D39972B00418C84 /* HealthyFoodApp.swift */; };
 		74CF489A2D39972D00418C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF48992D39972D00418C84 /* Assets.xcassets */; };
 		74CF489D2D39972D00418C84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF489C2D39972D00418C84 /* Preview Assets.xcassets */; };
@@ -50,18 +52,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7429D4F92D43A47800653ED6 /* MapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewTests.swift; sourceTree = "<group>"; };
 		7432FAAD2D40A41A004A1E11 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
 		743366632D3BAE8F00A62CD4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotatedItem.swift; sourceTree = "<group>"; };
 		743366672D3BCAE000A62CD4 /* MapLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationModel.swift; sourceTree = "<group>"; };
 		743450E42D3DB6F000EB5560 /* HealthyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRestaurants.swift; sourceTree = "<group>"; };
-		744302FE2D3A9E070054CAB0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		744302FE2D3A9E070054CAB0 /* NoteBookPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookPersistence.swift; sourceTree = "<group>"; };
 		746F02EA2D3A67100017FA7E /* NoteBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteBookView.swift; path = "Preview Content/NoteBookView.swift"; sourceTree = "<group>"; };
-		746F02ED2D3A77540017FA7E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		746F02ED2D3A77540017FA7E /* NoteBookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteBookModel.xcdatamodel; sourceTree = "<group>"; };
 		746F02EF2D3A7B570017FA7E /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
 		746F02F02D3A7B570017FA7E /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		746F02FB2D3A8A990017FA7E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceView.swift; sourceTree = "<group>"; };
+		746F02FB2D3A8A990017FA7E /* NoteBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookDetailView.swift; sourceTree = "<group>"; };
+		746F02FD2D3A8DB90017FA7E /* NoteBookAddDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookAddDetailView.swift; sourceTree = "<group>"; };
 		74CF48922D39972B00418C84 /* HealthyFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CF48952D39972B00418C84 /* HealthyFoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyFoodApp.swift; sourceTree = "<group>"; };
 		74CF48992D39972D00418C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 				74CF48B12D39B64E00418C84 /* FirebaseAnalytics in Frameworks */,
 				74CF48B32D39B94900418C84 /* FirebaseAuth in Frameworks */,
 				74D37A942D42D79100CD88AF /* FirebaseFirestore in Frameworks */,
+				74A5F32C2D44043000D3CD88 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,15 +133,15 @@
 			children = (
 				74D7E7892D3EFB16008BB2D9 /* Info.plist */,
 				74D7E7872D3EF984008BB2D9 /* FruitClassification.mlmodel */,
-				74CF48AD2D39A14500418C84 /* HomeView.swift */,
-				74CF48A72D399E1C00418C84 /* RegisterView.swift */,
-				74CF48A92D399E6F00418C84 /* LoginView.swift */,
 				74CF48952D39972B00418C84 /* HealthyFoodApp.swift */,
-				746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */,
+				74CF48A92D399E6F00418C84 /* LoginView.swift */,
+				74CF48A72D399E1C00418C84 /* RegisterView.swift */,
+				74CF48AD2D39A14500418C84 /* HomeView.swift */,
+				746F02EC2D3A77540017FA7E /* NoteBookModel.xcdatamodeld */,
 				746F02EA2D3A67100017FA7E /* NoteBookView.swift */,
-				746F02FD2D3A8DB90017FA7E /* AddDeviceView.swift */,
-				746F02FB2D3A8A990017FA7E /* DetailView.swift */,
-				744302FE2D3A9E070054CAB0 /* Persistence.swift */,
+				746F02FB2D3A8A990017FA7E /* NoteBookDetailView.swift */,
+				746F02FD2D3A8DB90017FA7E /* NoteBookAddDetailView.swift */,
+				744302FE2D3A9E070054CAB0 /* NoteBookPersistence.swift */,
 				743366632D3BAE8F00A62CD4 /* MapView.swift */,
 				743366672D3BCAE000A62CD4 /* MapLocationModel.swift */,
 				743366652D3BC9BD00A62CD4 /* MapAnnotatedItem.swift */,
@@ -175,6 +179,7 @@
 			children = (
 				74D37A9D2D4311CA00CD88AF /* RegisterViewTests.swift */,
 				74D37AA42D431B2E00CD88AF /* loginViewTests.swift */,
+				7429D4F92D43A47800653ED6 /* MapViewTests.swift */,
 			);
 			path = HealthyFoodTests;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				74CF48B02D39B64E00418C84 /* FirebaseAnalytics */,
 				74CF48B22D39B94900418C84 /* FirebaseAuth */,
 				74D37A932D42D79100CD88AF /* FirebaseFirestore */,
+				74A5F32B2D44043000D3CD88 /* ZIPFoundation */,
 			);
 			productName = HealthyFood;
 			productReference = 74CF48922D39972B00418C84 /* HealthyFood.app */;
@@ -252,6 +258,7 @@
 			mainGroup = 74CF48892D39972B00418C84;
 			packageReferences = (
 				74CF48AF2D39B64E00418C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				74A5F32A2D44037500D3CD88 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = 74CF48932D39972B00418C84 /* Products */;
 			projectDirPath = "";
@@ -288,11 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				744302FF2D3A9E070054CAB0 /* Persistence.swift in Sources */,
+				744302FF2D3A9E070054CAB0 /* NoteBookPersistence.swift in Sources */,
 				743450E52D3DB6F000EB5560 /* HealthyRestaurants.swift in Sources */,
 				743366642D3BAE8F00A62CD4 /* MapView.swift in Sources */,
 				74CF48A82D399E1C00418C84 /* RegisterView.swift in Sources */,
-				746F02FC2D3A8A990017FA7E /* DetailView.swift in Sources */,
+				746F02FC2D3A8A990017FA7E /* NoteBookDetailView.swift in Sources */,
 				74D7E7802D3EBBF3008BB2D9 /* AIFruitClassificationView.swift in Sources */,
 				74D7E7912D3F0F30008BB2D9 /* FruitNutritionView.swift in Sources */,
 				74D37A962D42EEDC00CD88AF /* RecipeDetailView.swift in Sources */,
@@ -302,8 +309,8 @@
 				74CF48962D39972B00418C84 /* HealthyFoodApp.swift in Sources */,
 				746F02EB2D3A67100017FA7E /* NoteBookView.swift in Sources */,
 				74D7E7882D3EF984008BB2D9 /* FruitClassification.mlmodel in Sources */,
-				746F02FE2D3A8DB90017FA7E /* AddDeviceView.swift in Sources */,
-				746F02EE2D3A77540017FA7E /* Model.xcdatamodeld in Sources */,
+				746F02FE2D3A8DB90017FA7E /* NoteBookAddDetailView.swift in Sources */,
+				746F02EE2D3A77540017FA7E /* NoteBookModel.xcdatamodeld in Sources */,
 				743366682D3BCAE000A62CD4 /* MapLocationModel.swift in Sources */,
 				7432FAAE2D40A41A004A1E11 /* LogOutView.swift in Sources */,
 				746F02F12D3A7B570017FA7E /* Device+CoreDataClass.swift in Sources */,
@@ -317,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7429D4FA2D43A47800653ED6 /* MapViewTests.swift in Sources */,
 				74D37AA52D431B2E00CD88AF /* loginViewTests.swift in Sources */,
 				74D37A9E2D4311CA00CD88AF /* RegisterViewTests.swift in Sources */,
 			);
@@ -533,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.ive.HealthyFoodTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,9 +556,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X75HQD2N5R;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.ive.HealthyFoodTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,6 +605,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		74A5F32A2D44037500D3CD88 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
 		74CF48AF2D39B64E00418C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -604,6 +624,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		74A5F32B2D44043000D3CD88 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74A5F32A2D44037500D3CD88 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
 		74CF48B02D39B64E00418C84 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 74CF48AF2D39B64E00418C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -621,13 +646,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		746F02EC2D3A77540017FA7E /* Model.xcdatamodeld */ = {
+		746F02EC2D3A77540017FA7E /* NoteBookModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				746F02ED2D3A77540017FA7E /* Model.xcdatamodel */,
+				746F02ED2D3A77540017FA7E /* NoteBookModel.xcdatamodel */,
 			);
-			currentVersion = 746F02ED2D3A77540017FA7E /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 746F02ED2D3A77540017FA7E /* NoteBookModel.xcdatamodel */;
+			path = NoteBookModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

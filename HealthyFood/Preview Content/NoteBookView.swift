@@ -28,8 +28,9 @@ struct NoteBookView: View {
                 List {
                     ForEach(devices) { device in
                         NavigationLink {
-                            DetalView(device: device)
-                                .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to destination view
+                            NoteBookDetailView(device: device)
+                            // Apply navigation style to destination view
+                                .navigationViewStyle(StackNavigationViewStyle())
                         } label: {
                             Text("\(device.title ?? "Unknown Title")")
                         }
@@ -47,10 +48,12 @@ struct NoteBookView: View {
                 }
             }
             .sheet(isPresented: $showingSheet, content: {
-                AddDeviceView(showingSheet: $showingSheet)
-                    .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to sheet view
+                NoteBookAddDetailView(showingSheet: $showingSheet)
+                // Apply navigation style to sheet view
+                    .navigationViewStyle(StackNavigationViewStyle())
             })
-            .navigationViewStyle(StackNavigationViewStyle()) // Apply navigation style to main NavigationView
+            // Apply navigation style to main NavigationView
+            .navigationViewStyle(StackNavigationViewStyle())
         } else {
             VStack {
                 Text("Please authenticate to view your notebooks.")

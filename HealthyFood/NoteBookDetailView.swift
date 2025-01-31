@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct DetalView: View {
+struct NoteBookDetailView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
@@ -24,13 +24,13 @@ struct DetalView: View {
         device.timestamp = Date()
         
         try? viewContext.save()
-        self.presentationMode.wrappedValue.dismiss() // Dismiss the view
+        self.presentationMode.wrappedValue.dismiss()
     }
     
     var body: some View {
         VStack {
             // Header text
-            Text("Create a new Device").padding()
+            Text("Edit Notebook").padding()
             // TextField for title
             TextField("Title", text: $title)
                 .padding()
